@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Weather App</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		<header class="container theme" style="height:85px;">
+			<h2><a href="/" class="button">Weather App in Node</a></H2>
+		</header>
+		<div class="row-padding padding-large" style="height: calc(100vh - 160px);">
+			<div class="container">
+				<% if(weather == null){ %>
+					<% include partials/form %>
+				<% } %>
+				<section>
+					<% if(weather !== null){ %>
+						<% include partials/result %>						
+					<% } %>
+					
+					<% if(error !== null){ %>
+						<% include partials/error %>
+					<% } %>
+				</section>
+			</div>
+		</div>
+		<footer class="footer theme container" style="height: 75px;">
+			<p class="opacity" style="padding-top:25px;">© Copyright ICARUS Capital</p>
+		</footer>
+		<script>
+			<% if(weather !== null){ %>
+				<% include partials/script %>						
+			<% } %>
+		</script>
+	</body>
+</html>

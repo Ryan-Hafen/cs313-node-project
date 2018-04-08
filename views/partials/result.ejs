@@ -1,0 +1,147 @@
+
+
+<div class="row-padding">
+	<h2><%= weather.current_observation.display_location.full %></h2>
+
+	<div class="bar theme-light">
+		<button class="bar-item button tabbtn padding-16 theme text-theme-light" onclick="openTab(event,'Today')">Today</button>
+		<button class="bar-item button tabbtn padding-16" onclick="openTab(event,'7-DAY')">7-DAY</button>
+	</div>
+	<div id="Today" class="container tab animate-opacity card-4">
+		<p class="bar-item small opacity"><%= weather.current_observation.observation_time %></p>
+		<div class="container col l4 left">
+			<div>
+				<img src=<%= weather.current_observation.icon_url %> class="bar-item">
+				<p class="left-align" style="margin:1px 0;"><%= weather.current_observation.weather %></p>
+				<p class="left-align" style="margin:1px 0;">Current Temperature: <%= weather.current_observation.temperature_string %></p>
+				<p class="left-align" style="margin:1px 0;">Feels Like: <%= weather.current_observation.feelslike_string %></p>
+			</div>
+			<div style="margin-top:30px;"> 
+				<table class="table bordered">
+					<thead>
+						<th>Precipitation</th>
+						<th>Humidity</th>
+						<th>Winds</th>
+						<th>Visibility</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="word-wrap:break-word;"><%= weather.current_observation.precip_today_string %></td>
+							<td style="word-wrap:break-word;"><%= weather.current_observation.relative_humidity %></td>
+							<td style="word-wrap:break-word;"><%= weather.current_observation.wind_string %></td>
+							<td style="word-wrap:break-word;"><%= weather.current_observation.visibility_mi %> MPH</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="container quarter margin">
+			<img src=<%= radar %> style="max-width:250px;max-height:250px;">
+		</div>
+	</div>
+
+	<div id="7-DAY" class="container tab animate-opacity card-4">
+		<div class="bar responsive">
+			<div class="container" style="display:flex">
+				<div class="col container l1 card padding-small" style="margin:5px;">
+					<div  class="left-align third">
+						<img src=<%= weather.forecast.simpleforecast.forecastday[0].icon_url %>>
+					</div>
+					<div class="right-align twothird">
+						<p class="small left-align" style="margin:1px 0;"><%= weather.forecast.txt_forecast.forecastday[0].title %></p>
+						<p class="small left-align" style="margin:1px 0;">HIGH <%= weather.forecast.simpleforecast.forecastday[0].high.fahrenheit %></p>
+						<p class="small left-align" style="margin:1px 0;">LOW <%= weather.forecast.simpleforecast.forecastday[0].low.fahrenheit %></p>
+						</tbody>
+					</div>
+					<div class="padding-small">
+						<p class="tiny left-align" style="margin:1px 0;"><%= weather.forecast.txt_forecast.forecastday[0].fcttext %></p>
+					</div>
+				</div>
+				<div class="col container l1 card padding-small" style="margin:5px;">
+					<div  class="left-align third">
+						<img src=<%= weather.forecast.simpleforecast.forecastday[1].icon_url %>>
+					</div>
+					<div class="right-align twothird">
+						<p class="small left-align" style="margin:1px 0;"><%= weather.forecast.txt_forecast.forecastday[2].title %></p>
+						<p class="small left-align" style="margin:1px 0;">HIGH <%= weather.forecast.simpleforecast.forecastday[1].high.fahrenheit %></p>
+						<p class="small left-align" style="margin:1px 0;">LOW <%= weather.forecast.simpleforecast.forecastday[1].low.fahrenheit %></p>
+						</tbody>
+					</div>
+					<div class="padding-small">
+						<p class="tiny left-align" style="margin:1px 0;"><%= weather.forecast.txt_forecast.forecastday[2].fcttext %></p>
+					</div>
+				</div>
+				<div class="col container l1 card padding-small" style="margin:5px;">
+					<div  class="left-align third">
+						<img src=<%= weather.forecast.simpleforecast.forecastday[2].icon_url %>>
+					</div>
+					<div class="right-align twothird">
+						<p class="small left-align" style="margin:1px 0;"><%= weather.forecast.txt_forecast.forecastday[4].title %></p>
+						<p class="small left-align" style="margin:1px 0;">HIGH <%= weather.forecast.simpleforecast.forecastday[2].high.fahrenheit %></p>
+						<p class="small left-align" style="margin:1px 0;">LOW <%= weather.forecast.simpleforecast.forecastday[2].low.fahrenheit %></p>
+						</tbody>
+					</div>
+					<div class="padding-small">
+						<p class="tiny left-align" style="margin:1px 0;"><%= weather.forecast.txt_forecast.forecastday[4].fcttext %></p>
+					</div>
+				</div>
+				<div class="col container l1 card padding-small" style="margin:5px;">
+					<div  class="left-align third">
+						<img src=<%= weather.forecast.simpleforecast.forecastday[3].icon_url %>>
+					</div>
+					<div class="right-align twothird">
+						<p class="small left-align" style="margin:1px 0;"><%= weather.forecast.txt_forecast.forecastday[6].title %></p>
+						<p class="small left-align" style="margin:1px 0;">HIGH <%= weather.forecast.simpleforecast.forecastday[3].high.fahrenheit %></p>
+						<p class="small left-align" style="margin:1px 0;">LOW <%= weather.forecast.simpleforecast.forecastday[3].low.fahrenheit %></p>
+						</tbody>
+					</div>
+					<div class="padding-small">
+						<p class="tiny left-align" style="margin:1px 0;"><%= weather.forecast.txt_forecast.forecastday[6].fcttext %></p>
+					</div>
+				</div>
+				<div class="col container l1 card padding-small" style="margin:5px;">
+					<div  class="left-align third">
+						<img src=<%= weather.forecast.simpleforecast.forecastday[4].icon_url %>>
+					</div>
+					<div class="right-align twothird">
+						<p class="small left-align" style="margin:1px 0;"><%= weather.forecast.txt_forecast.forecastday[8].title %></p>
+						<p class="small left-align" style="margin:1px 0;">HIGH <%= weather.forecast.simpleforecast.forecastday[4].high.fahrenheit %></p>
+						<p class="small left-align" style="margin:1px 0;">LOW <%= weather.forecast.simpleforecast.forecastday[4].low.fahrenheit %></p>
+						</tbody>
+					</div>
+					<div class="padding-small">
+						<p class="tiny left-align" style="margin:1px 0;"><%= weather.forecast.txt_forecast.forecastday[8].fcttext %></p>
+					</div>
+				</div>
+				<div class="col container l1 card padding-small" style="margin:5px;">
+					<div  class="left-align third">
+						<img src=<%= weather.forecast.simpleforecast.forecastday[5].icon_url %>>
+					</div>
+					<div class="right-align twothird">
+						<p class="small left-align" style="margin:1px 0;"><%= weather.forecast.txt_forecast.forecastday[10].title %></p>
+						<p class="small left-align" style="margin:1px 0;">HIGH <%= weather.forecast.simpleforecast.forecastday[5].high.fahrenheit %></p>
+						<p class="small left-align" style="margin:1px 0;">LOW <%= weather.forecast.simpleforecast.forecastday[5].low.fahrenheit %></p>
+						</tbody>
+					</div>
+					<div class="padding-small">
+						<p class="tiny left-align" style="margin:1px 0;"><%= weather.forecast.txt_forecast.forecastday[10].fcttext %></p>
+					</div>
+				</div>
+				<div class="col container l1 card padding-small" style="margin:5px;">
+					<div  class="left-align third">
+						<img src=<%= weather.forecast.simpleforecast.forecastday[6].icon_url %>>
+					</div>
+					<div class="right-align twothird">
+						<p class="small left-align" style="margin:1px 0;"><%= weather.forecast.txt_forecast.forecastday[12].title %></p>
+						<p class="small left-align" style="margin:1px 0;">HIGH <%= weather.forecast.simpleforecast.forecastday[6].high.fahrenheit %></p>
+						<p class="small left-align" style="margin:1px 0;">LOW <%= weather.forecast.simpleforecast.forecastday[6].low.fahrenheit %></p>
+						</tbody>
+					</div>
+					<div class="padding-small">
+						<p class="tiny left-align" style="margin:1px 0;"><%= weather.forecast.txt_forecast.forecastday[12].fcttext %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

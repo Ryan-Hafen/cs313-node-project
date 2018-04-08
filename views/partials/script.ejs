@@ -1,0 +1,17 @@
+// Tabs
+function openTab(evt, tabName) {
+  var i;
+  var x = document.getElementsByClassName("tab");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  var activebtn = document.getElementsByClassName("tabbtn");
+  for (i = 0; i < x.length; i++) {
+      activebtn[i].className = activebtn[i].className.replace(" theme text-theme-light", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " theme text-theme-light";
+}
+
+var mybtn = document.getElementsByClassName("tabbtn")[0];
+mybtn.click();
