@@ -239,6 +239,7 @@ body {
 html {
   overflow-x: hidden;
 }
+
 h1 {
   font-size: 36px;
 }
@@ -256,6 +257,11 @@ h5 {
 }
 h6 {
   font-size: 16px;
+}
+.lora {
+  font-family: 'Lora', monospace;
+  font-weight: bold;
+  line-height: 1.5;
 }
 .serif {
   font-family: serif;
@@ -635,7 +641,7 @@ a {
 }
 @media (min-width: 993px) {
   .col.l1 {
-    width: 14.28571%;
+    width: 13.33333%;
   }
   .col.l2 {
     width: 16.66666%;
@@ -929,6 +935,14 @@ a {
 .container,
 .panel {
   padding: 0.01em 16px;
+}
+.flex-container {  
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row wrap;
 }
 .panel {
   margin-top: 16px;

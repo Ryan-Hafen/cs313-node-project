@@ -5,7 +5,7 @@ const dotenv = require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const app = express()
 
@@ -14,7 +14,7 @@ const app = express()
 // ================================================================
 const ApiKey = process.env.API_KEY;
 	// console.log(ApiKey);
-const baseUrl = "http://api.wunderground.com/api/" + ApiKey + "/forecast10day/geolookup/conditions/hourly/q/"
+const baseUrl = "http://api.wunderground.com/api/" + ApiKey + "/forecast10day/geolookup/conditions/q/"
 	// console.log(baseUrl);
 
 app.use(express.static('public'));
@@ -52,6 +52,6 @@ app.post('/', function (req, res) {
 // ================================================================
 // start our server
 // ================================================================
-app.listen(process.env.PORT || port, function(){
+app.listen(port, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
